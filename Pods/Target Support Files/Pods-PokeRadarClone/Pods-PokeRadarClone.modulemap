@@ -1,0 +1,6 @@
+framework module Pods_PokeRadarClone {
+  umbrella header "Pods-PokeRadarClone-umbrella.h"
+
+  export *
+  module * { export * }
+}
