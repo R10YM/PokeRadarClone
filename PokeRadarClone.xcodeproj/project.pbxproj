@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		053823227FDDD0ED2682A4B7 /* Pods_PokeRadarClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240C3395F44E02413BC1A9A1 /* Pods_PokeRadarClone.framework */; };
+		7A3316941E0CD6B1000683C3 /* PokeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3316931E0CD6B1000683C3 /* PokeCell.swift */; };
+		7A33169B1E0CE2DB000683C3 /* FONT.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A33169A1E0CE2DB000683C3 /* FONT.ttf */; };
+		7A33169D1E0CE905000683C3 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A33169C1E0CE905000683C3 /* Pokemon.swift */; };
+		7A4BC4C71E0C4A49006F522B /* PokeCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4BC4C61E0C4A49006F522B /* PokeCollectionVC.swift */; };
 		7A543ED81DFCF0C0008A710C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A543ED71DFCF0C0008A710C /* AppDelegate.swift */; };
 		7A543EDA1DFCF0C0008A710C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A543ED91DFCF0C0008A710C /* ViewController.swift */; };
 		7A543EDD1DFCF0C0008A710C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A543EDB1DFCF0C0008A710C /* Main.storyboard */; };
@@ -26,6 +30,10 @@
 		240C3395F44E02413BC1A9A1 /* Pods_PokeRadarClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PokeRadarClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3717C98CF5E0C90F3D00196A /* Pods-PokeRadarClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeRadarClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PokeRadarClone/Pods-PokeRadarClone.debug.xcconfig"; sourceTree = "<group>"; };
 		641910DD3A256C62CC698B61 /* Pods-PokeRadarClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokeRadarClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-PokeRadarClone/Pods-PokeRadarClone.release.xcconfig"; sourceTree = "<group>"; };
+		7A3316931E0CD6B1000683C3 /* PokeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCell.swift; sourceTree = "<group>"; };
+		7A33169A1E0CE2DB000683C3 /* FONT.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FONT.ttf; sourceTree = "<group>"; };
+		7A33169C1E0CE905000683C3 /* Pokemon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
+		7A4BC4C61E0C4A49006F522B /* PokeCollectionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PokeCollectionVC.swift; sourceTree = "<group>"; };
 		7A543ED41DFCF0C0008A710C /* PokeRadarClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PokeRadarClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A543ED71DFCF0C0008A710C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A543ED91DFCF0C0008A710C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		7A3316921E0CD68F000683C3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7A3316931E0CD6B1000683C3 /* PokeCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		7A3316951E0CE082000683C3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7A33169A1E0CE2DB000683C3 /* FONT.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		7A543ECB1DFCF0BF008A710C = {
 			isa = PBXGroup;
 			children = (
@@ -95,7 +119,9 @@
 		7A543ED61DFCF0C0008A710C /* PokeRadarClone */ = {
 			isa = PBXGroup;
 			children = (
+				7A3316951E0CE082000683C3 /* Resources */,
 				7AA6D7C01DFD188F00695559 /* Module */,
+				7A3316921E0CD68F000683C3 /* View */,
 				7AA6D7BF1DFD188400695559 /* Controller */,
 				7A543EEB1DFCF3F7008A710C /* GeoFire */,
 				7A543ED71DFCF0C0008A710C /* AppDelegate.swift */,
@@ -151,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				7A543ED91DFCF0C0008A710C /* ViewController.swift */,
+				7A4BC4C61E0C4A49006F522B /* PokeCollectionVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -159,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA6D7C11DFD18C800695559 /* PokeAnnotation.swift */,
+				7A33169C1E0CE905000683C3 /* Pokemon.swift */,
 			);
 			name = Module;
 			sourceTree = "<group>";
@@ -201,7 +229,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Meng Yuan";
 				TargetAttributes = {
 					7A543ED31DFCF0BF008A710C = {
@@ -235,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A543EE21DFCF0C0008A710C /* LaunchScreen.storyboard in Resources */,
+				7A33169B1E0CE2DB000683C3 /* FONT.ttf in Resources */,
 				7A543EEA1DFCF0FC008A710C /* GoogleService-Info.plist in Resources */,
 				7A543EDF1DFCF0C0008A710C /* Assets.xcassets in Resources */,
 				7A543EDD1DFCF0C0008A710C /* Main.storyboard in Resources */,
@@ -296,13 +325,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A4BC4C71E0C4A49006F522B /* PokeCollectionVC.swift in Sources */,
 				7A543EFE1DFCF3F7008A710C /* GFBase32Utils.m in Sources */,
 				7AA6D7C21DFD18C800695559 /* PokeAnnotation.swift in Sources */,
 				7A543EDA1DFCF0C0008A710C /* ViewController.swift in Sources */,
+				7A3316941E0CD6B1000683C3 /* PokeCell.swift in Sources */,
 				7A543EFF1DFCF3F7008A710C /* GFGeoHash.m in Sources */,
 				7A543ED81DFCF0C0008A710C /* AppDelegate.swift in Sources */,
 				7A543EFD1DFCF3F7008A710C /* GeoFire.m in Sources */,
 				7A543F001DFCF3F7008A710C /* GFGeoHashQuery.m in Sources */,
+				7A33169D1E0CE905000683C3 /* Pokemon.swift in Sources */,
 				7A543F011DFCF3F7008A710C /* GFQuery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,6 +379,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -396,6 +429,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

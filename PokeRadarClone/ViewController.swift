@@ -10,23 +10,19 @@ import UIKit
 import FirebaseDatabase
 
 class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-    
-    var geoFire: GeoFire!
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var Btn: UIButton!
     
     let locationManager = CLLocationManager()
     
     var mapHasCenteredOnce = false
     
-    var geoFireRef: FIRDatabaseReference!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.userTrackingMode = MKUserTrackingMode.follow
-        geoFireRef = FIRDatabase.database().reference()
-        geoFire = GeoFire(firebaseRef: geoFireRef)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +49,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
+    //center the map to user location when the app open
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         if let loc = userLocation.location {
             if !mapHasCenteredOnce {
@@ -62,15 +59,18 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         }
     }
     
+    //create annotation view for user and poke
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         var annotationView: MKAnnotationView?
         let annoIdentifier = "Pokemon"
         
+        //annotation for user
         if annotation.isKind(of: MKUserLocation.self) {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "User")
             annotationView?.image = UIImage(named: "ash")
         }
         
+        //annotation for Pokemon
         else if let deqAnno = mapView.dequeueReusableAnnotationView(withIdentifier: annoIdentifier) {
             annotationView = deqAnno
             annotationView?.annotation = annotation
@@ -103,9 +103,13 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
     }
 
     @IBAction func spotRandomPokemon(_ sender: Any) {
-        let loc = CLLocation(latitude: mapView.centerCoordinate.latitude, longitude: mapView.centerCoordinate.longitude)
-        let rand = arc4random_uniform(151) + 1
-        createSighting(forLocation: loc, withPokemon: Int(rand))
+        performSegue(withIdentifier: "pokeCollection", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? PokeCollectionVC {
+            destination.userLocation = CLLocation(latitude: mapView.userLocation.coordinate.latitude, longitude: mapView.userLocation.coordinate.longitude)
+        }
     }
     
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
@@ -113,6 +117,7 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
         showSpotsOnMap(location: loc)
     }
     
+    //Interact with apple map to show navigation to selected Poke when accessory control tapped
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let  anno = view.annotation as? PokeAnnotation {
             let place = MKPlacemark(coordinate: anno.coordinate)
@@ -124,10 +129,5 @@ class ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDele
             MKMapItem.openMaps(with: [destination], launchOptions: options)
         }
     }
-    
-    func createSighting(forLocation location: CLLocation, withPokemon pokeId: Int) {
-        geoFire.setLocation(location, forKey: "\(pokeId)")
-    }
-
 }
 

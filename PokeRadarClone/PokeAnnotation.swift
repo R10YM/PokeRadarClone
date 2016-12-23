@@ -7,8 +7,14 @@
 //
 
 import Foundation
+import Firebase
+
+let geoFireRef = FIRDatabase.database().reference()
+let geoFire = GeoFire(firebaseRef: geoFireRef)
+
 
 let pokemon = [
+    "MUA~",
     "bulbasaur",
     "ivysaur",
     "venusaur",
@@ -171,7 +177,7 @@ class PokeAnnotation: NSObject, MKAnnotation {
     init(coordinate: CLLocationCoordinate2D, pokeId: Int) {
         self.coordinate = coordinate
         self.pokeId = pokeId
-        self.pokeName = pokemon[pokeId - 1].capitalized
+        self.pokeName = pokemon[pokeId].capitalized
         self.title = self.pokeName
     }
 }
