@@ -14,7 +14,6 @@ let geoFire = GeoFire(firebaseRef: geoFireRef)
 
 
 let pokemon = [
-    "MUA~",
     "bulbasaur",
     "ivysaur",
     "venusaur",
